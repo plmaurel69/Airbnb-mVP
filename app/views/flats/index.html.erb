@@ -1,0 +1,24 @@
+
+
+<h1>All our flats</h1>
+
+  <% @flats.each do | flat | %>
+  <br>
+  <br>
+  <%= flat.name %>
+  <br>
+  <%= flat.address %>
+  <br>
+  <%= flat.description %>
+  <br>
+  <%= flat.price_per_night %>
+  <br>
+  <%= flat.number_of_guests %>
+  <br>
+    <%= link_to "Remove",
+    flat_path(flat),
+    method: :delete,
+    data: { confirm: "Are you sure?" } %>
+
+    <%= link_to "Edit", edit_flat_path(flat) %>
+  <% end %>
