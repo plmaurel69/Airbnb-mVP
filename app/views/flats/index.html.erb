@@ -1,24 +1,26 @@
-
-
 <h1>All our flats</h1>
 
   <% @flats.each do | flat | %>
-  <br>
-  <br>
-  <%= flat.name %>
-  <br>
-  <%= flat.address %>
-  <br>
-  <%= flat.description %>
-  <br>
-  <%= flat.price_per_night %>
-  <br>
-  <%= flat.number_of_guests %>
-  <br>
-    <%= link_to "Remove",
-    flat_path(flat),
-    method: :delete,
-    data: { confirm: "Are you sure?" } %>
-
-    <%= link_to "Edit", edit_flat_path(flat) %>
+  <div class="flex-container">
+    <div class="flex-item">
+      <div class="card-hotel">
+      <img class="fit-picture"
+     src="app/assets/images/image.jpg"
+     alt="Grapefruit slice atop a pile of other slices">
+        <div class="card-info">
+          <h3><%= flat.name %></h3>
+          <p><%= flat.address %></p>
+        </div>
+        <div class="price-people">
+          <p><i class="fas fa-euro-sign"></i><%= flat.price_per_night %></p>
+          <p><i class="fas fa-user-friends"></i> <%= flat.number_of_guests %></p>
+        </div>
+        <div class="action-button-card">
+          <%= link_to "More info", flat_path(flat) %>
+          <%= link_to "Remove", flat_path(flat), method: :delete, data: { confirm: "Are you sure?" } %>
+          <%= link_to "Edit", edit_flat_path(flat) %>
+        </div>
+      </div>
+    </div>
+  </div>
   <% end %>
